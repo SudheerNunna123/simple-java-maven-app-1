@@ -25,6 +25,9 @@ jobs:
 
     - name: Run Tests
       run: mvn test
+
+    - name: List Target Directory
+      run: ls -R target/
    
     - name: Upload Build Artifacts
       if: success()
