@@ -27,13 +27,23 @@ jobs:
       run: mvn test
    
     - name: Upload Build Artifacts
+      if: sucess()
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: target/*.jar
+
+    - name: Upload JUnit Test Results
+      if: sucess()
       uses: actions/upload-artifact@v3
       with:
         name: junit-test-results
-        path: target/surefire-reports/*.xml
-
-    - name: Publish J unit Test Report
-      uses: doeny/test-reporter@v1
+        path: target/surevfire-reports/*.xml
+  
+    - name: Publish Junit Test Report
+      if: sucess()
+      uses: dorny/test-reporter@v1
       with:
+        name: Junit Test Results
         path: target/surefire-reports/*.xml
         reporter: java-junit
