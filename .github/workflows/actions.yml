@@ -10,7 +10,6 @@ jobs:
       matrix:
         java-version: [11, 17]
 
-
 steps:
 - name: Checkout Repository
   uses: actions/checkout@v3
