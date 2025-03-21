@@ -25,28 +25,3 @@ jobs:
 
     - name: Run Tests
       run: mvn test
-
-    - name: List Target Directory
-      run: ls -R target/
-   
-    - name: Upload Build Artifacts
-      if: success()
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-files
-        path: target/*.jar
-
-    - name: Upload JUnit Test Results
-      if: success()
-      uses: actions/upload-artifact@v2
-      with:
-        name: junit-test-results
-        path: target/surevfire-reports/*.xml
-  
-    - name: Publish Junit Test Report
-      if: success()
-      uses: dorny/test-reporter@v1
-      with:
-        name: Junit Test Results
-        path: target/surefire-reports/*.xml
-        reporter: java-junit
