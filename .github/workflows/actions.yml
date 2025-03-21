@@ -28,13 +28,13 @@ jobs:
    
     - name: Upload Build Artifacts
       uses: actions/upload-artifacts@v3
-       with:
+      with:
         name: junit-test-results
         path: target/surefire-reports/*.xml
 
     - name: Publish J unit Test Report
       uses: doeny/test-reporter@v1
-       with:
+      with:
         Junit Test Results
         path: target/surefire-reports/*.xml
         reporter: java-junit
