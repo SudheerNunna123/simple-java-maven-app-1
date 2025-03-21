@@ -31,14 +31,14 @@ jobs:
    
     - name: Upload Build Artifacts
       if: success()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: build-files
         path: target/*.jar
 
     - name: Upload JUnit Test Results
       if: success()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: junit-test-results
         path: target/surevfire-reports/*.xml
