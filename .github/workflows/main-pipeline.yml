@@ -4,4 +4,4 @@ on: [push]
 
 jobs:
   call-build:
-    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-build-java.yml@main
+    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-java-build.yml@main
