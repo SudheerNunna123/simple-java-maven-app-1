@@ -1,0 +1,7 @@
+name: Main Java Pipeline
+
+on: [push]
+
+jobs:
+  call-build:
+    uses: SudheerNunna123/simple-java-maven-app1/.github/workflows/build-java.yml@main
