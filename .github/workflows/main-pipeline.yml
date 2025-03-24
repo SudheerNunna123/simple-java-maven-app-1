@@ -8,4 +8,4 @@ jobs:
     with:
       java_version: ${{ vars.JAVA_VERSION }}
     secrets:
-      api_key: ${{ secrets.API_KEY }}
+      API_KEY: ${{ secrets.API_KEY }}
