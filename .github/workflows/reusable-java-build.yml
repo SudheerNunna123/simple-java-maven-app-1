@@ -26,7 +26,7 @@ jobs:
           java-version: ${{ inputs.java_version }}
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -f simple-java-maven-app-1/pom.xml clean install
 
   test:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
     if: success()  # Runs only if 'build' succeeds
     steps:
       - name: Run Tests
-        run: mvn test
+        run: mvn simple-java-maven-app-1/pom.xml test
 
       - name: Use GitHub Secret (API Key)
         env:
