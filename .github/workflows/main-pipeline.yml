@@ -1,12 +1,13 @@
-name: Main Java Pipeline
+name: Main Java Pipeline  # Main workflow to trigger the reusable Java build
 
-on: [push]
+on: 
+  [push]  # Run this workflow on every push event
 
 jobs:
   call-build:
-    if: github.ref == 'refs/heads/master'  # Run only on master branch
-    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-java-build.yml@master
+    if: github.ref == 'refs/heads/master'  # Only run this job if the push is to the master branch
+    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-java-build.yml@master  # Calls the reusable workflow
     with:
-      java_version: ${{ vars.JAVA_VERSION }}
+      java_version: ${{ vars.JAVA_VERSION }}  # Pass the Java version as a variable
     secrets:
-      API_KEY: ${{ secrets.API_KEY }}
+      API_KEY: ${{ secrets.API_KEY }}  # Pass the API key secret
