@@ -2,13 +2,18 @@ name: Reusable Java Build
 
 on:
   workflow_call:
+    inputs:
+      java_version:
+        required: true
+        type: string
+
+    secrets:
+      api_key:
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java-version: [11, 17]
 
     steps:
       - name: Checkout Code
@@ -18,10 +23,13 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: ${{ matrix.java-version }}
+          java-version: ${{ inputs.java_version }}
 
       - name: Build with Maven
         run: mvn clean install
 
       - name: Run Tests
         run: mvn test
+
+      - name: Use GitHub Secret (API Key)
+        run: echo "Using API Key: ${{ secrets.api_key }}"
