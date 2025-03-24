@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   call-build:
-    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-java-build@master
+    uses: SudheerNunna123/simple-java-maven-app-1/.github/workflows/reusable-java-build.yml@master
     with:
       java_version: ${{ vars.JAVA_VERSION }}
     secrets:
