@@ -8,7 +8,7 @@ on:
         type: string
 
     secrets:
-      api_key:
+      API_KEY:
         required: true
 
 jobs:
@@ -34,6 +34,6 @@ jobs:
       - name: Use GitHub Secret (API Key)
         run: echo "Using API Key: $API_KEY"
         env:
-          api_key: ${{ secrets.API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
 
 
