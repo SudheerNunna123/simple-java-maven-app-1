@@ -30,39 +30,6 @@ jobs:
 
       - name: Run Tests
         run: mvn test
-        
-     name: Reusable Java Builds
-
-on:
-  workflow_call:
-    inputs:
-      java_version:
-        required: true
-        type: string
-
-    secrets:
-      API_KEY:
-        required: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set Up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: ${{ inputs.java_version }}
-
-      - name: Build with Maven
-        run: mvn clean install
-
-      - name: Run Tests
-        run: mvn test
 
       - name: Use GitHub Secret (API Key)
         env:
