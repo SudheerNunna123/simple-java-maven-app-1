@@ -1,6 +1,6 @@
 package com.mycompany.app;
 
-// Comment
+// Comments
 
 /**
  * Hello world!!!!
